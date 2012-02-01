@@ -12,3 +12,5 @@ create machine configuration in git repo
  -                         go.sh?
 
 after main configuration, pushd into configurations/<hostname>/ and execute go.sh
+
+https://github.com/amoffat/pbs
