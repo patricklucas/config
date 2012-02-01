@@ -2,6 +2,10 @@
 
 set -e
 
+# Update aptitude and upgrade everything
+aptitude update
+aptitude safe-upgrade -y
+
 # Install common packages from packages.txt
 packages=$(cat packages.txt | tr '\n' ' ')
 aptitude install -y $packages
