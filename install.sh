@@ -20,7 +20,7 @@ cp keys/id_dsa.pub ~prl/.ssh/authorized_keys
 chmod 0600 ~prl/.ssh/authorized_keys
 chown -R prl:prl ~prl/.ssh
 
-# Disable root ssh login
+# Tighten up sshd
 sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 service ssh restart
