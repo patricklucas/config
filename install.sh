@@ -2,10 +2,9 @@
 
 set -e
 
-function install_common() {
-    packages=$(cat packages.txt | tr '\n' ' ')
-    aptitude install -y $packages
-}
+# Install common packages from packages.txt
+packages=$(cat packages.txt | tr '\n' ' ')
+aptitude install -y $packages
 
 # Add prl user
 adduser --quiet --disabled-password --gecos "Patrick Lucas,,," prl
