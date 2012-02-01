@@ -14,6 +14,7 @@ usermod -a -G sudo prl
 mkdir -p ~prl/.ssh
 cp keys/id_dsa.pub ~prl/.ssh/authorized_keys
 chmod 0600 ~prl/.ssh/authorized_keys
+chown -R prl:prl ~prl/.ssh
 
 # Disable root ssh login
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
