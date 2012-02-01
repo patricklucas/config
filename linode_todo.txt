@@ -1,0 +1,14 @@
+script to:
+ - create a new linode
+   - specify type as option, default 512
+ - add private ip and get it
+ - build from stackscript
+   - specify hostname as option
+   - include private ip so it can configure it
+ - add dns entry for <hostname>.pool.patricklucas.net to public ip
+
+create machine configuration in git repo
+ - configurations/<hostname>/
+ -                         go.sh?
+
+after main configuration, pushd into configurations/<hostname>/ and execute go.sh
