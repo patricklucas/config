@@ -1,0 +1,5 @@
+sudo
+vim
+wget
+build-essential
+openssh-server
