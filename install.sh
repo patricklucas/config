@@ -8,7 +8,7 @@ aptitude install -y $packages
 
 # Add prl user
 adduser --quiet --disabled-password --gecos "Patrick Lucas,,," prl
-usermod -a -G wheel prl
+usermod -a -G sudo prl
 
 # Install ssh key
 mkdir -p ~prl/.ssh
