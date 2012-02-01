@@ -21,5 +21,6 @@ chmod 0600 ~prl/.ssh/authorized_keys
 chown -R prl:prl ~prl/.ssh
 
 # Disable root ssh login
-sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 service ssh restart
