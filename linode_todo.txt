@@ -5,7 +5,7 @@ script to:
  - build from stackscript
    - specify hostname as option
    - include private ip so it can configure it
- - add dns entry for <hostname>.pool.patricklucas.net to public ip
+ - add dns entry for <hostname>.atl.patricklucas.net to public ip (AAAA)
 
 create machine configuration in git repo
  - configurations/<hostname>/
