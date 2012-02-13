@@ -27,7 +27,7 @@ service ssh restart
 
 # Set up private IP
 if [ -n "$private_ip" ]; then
-    sed -i 's/auto eth0/auto eth0 eth0:0/' /etc/network/interfaces
+    sed -i 's/^auto \(.*\)$/auto \1 eth0:0/' /etc/network/interfaces
     cat >> /etc/network/interfaces << EOF
 
 iface eth0:0 inet static

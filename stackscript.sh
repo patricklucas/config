@@ -3,4 +3,7 @@
 <udf name="hostname" LABEL="Hostname">
 <udf name="private_ip" LABEL="Private IP Address">
 
+export hostname
+export private_ip
+
 curl -s https://raw.github.com/patricklucas/config/master/bootstrap.sh | bash
