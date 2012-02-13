@@ -26,19 +26,19 @@ sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd
 service ssh restart
 
 # Set up private IP
-if [ -n "$private_ip" ]; then
+if [ -n "$PRIVATE_IP" ]; then
     sed -i 's/^auto \(.*\)$/auto \1 eth0:0/' /etc/network/interfaces
     cat >> /etc/network/interfaces << EOF
 
 iface eth0:0 inet static
-    address $private_ip
+    address $PRIVATE_IP
     netmask 255.255.128.0
 EOF
     ifup eth0:0
 fi
 
 # Set the hostname
-if [ -n "$hostname" ]; then
-    echo $hostname > /etc/hostname
+if [ -n "$HOSTNAME" ]; then
+    echo $HOSTNAME > /etc/hostname
     hostname -F /etc/hostname
 fi
