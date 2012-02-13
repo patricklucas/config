@@ -24,3 +24,14 @@ chown -R prl:prl ~prl/.ssh
 sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 service ssh restart
+
+# Set up private IP
+if [ -n "$private_ip" ]; then
+    sed -i 's/auto eth0/auto eth0 eth0:0/' /etc/network/interfaces
+    cat >> /etc/network/interfaces << EOF
+
+iface eth0:0 inet static
+    address $private_ip
+    netmask 255.255.128.0
+EOF
+fi
