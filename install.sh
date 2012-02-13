@@ -40,5 +40,5 @@ fi
 # Set the hostname
 if [ -n "$hostname" ]; then
     echo $hostname > /etc/hostname
-    sed -i "s/SET_HOSTNAME='yes'/#SET_HOSTNAME='yes'/" /etc/default/dhcpcd
+    hostname -F /etc/hostname
 fi
