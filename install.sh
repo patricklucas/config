@@ -34,4 +34,11 @@ iface eth0:0 inet static
     address $private_ip
     netmask 255.255.128.0
 EOF
+    ifup eth0:0
+fi
+
+# Set the hostname
+if [ -n "$hostname" ]; then
+    echo $hostname > /etc/hostname
+    sed -i "s/SET_HOSTNAME='yes'/#SET_HOSTNAME='yes'/" /etc/default/dhcpcd
 fi
