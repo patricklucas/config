@@ -48,3 +48,6 @@ if [ -n "$HOSTNAME" ]; then
     hostname -F /etc/hostname
     sed -i "s/^\(.*\)debian$/\1$HOSTNAME/" /etc/hosts
 fi
+
+# Disable screen welcome message
+sed -i 's/^#startup_message off$/startup_message off/' /etc/screenrc

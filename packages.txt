@@ -3,3 +3,4 @@ vim
 wget
 build-essential
 htop
+screen
