@@ -46,4 +46,5 @@ fi
 if [ -n "$HOSTNAME" ]; then
     echo $HOSTNAME > /etc/hostname
     hostname -F /etc/hostname
+    sed -i "s/^\(.*\)debian$/\1$HOSTNAME/" /etc/hosts
 fi
