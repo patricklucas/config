@@ -4,3 +4,4 @@ wget
 build-essential
 htop
 screen
+bwm-ng
