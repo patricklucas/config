@@ -40,6 +40,13 @@ def add_linode(linode_type, hostname, root_pass):
     )['LinodeID']
     logging.info("Created Linode `%d'", linode_id)
 
+    # Label the Linode
+    linode_api.linode_update(
+        LinodeID=linode_id,
+        Label=hostname,
+        lpm_displayGroup="Bootstrapped"
+    )
+
     # Add and get a private IP
     private_ip_address_id = linode_api.linode_ip_addprivate(
         LinodeID=linode_id
