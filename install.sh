@@ -3,7 +3,7 @@
 set -e
 
 # Add Debian backports sources list
-cat > /etc/apt/sources.list.d/backports << EOF
+cat > /etc/apt/sources.list.d/backports.list << EOF
 deb http://backports.debian.org/debian-backports squeeze-backports main
 EOF
 
