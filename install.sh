@@ -2,6 +2,11 @@
 
 set -e
 
+# Add Debian backports sources list
+cat > /etc/apt/sources.list.d/backports << EOF
+deb http://backports.debian.org/debian-backports squeeze-backports main
+EOF
+
 # Update package lists and upgrade outdated packages
 apt-get update
 apt-get safe-upgrade -y
