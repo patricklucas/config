@@ -2,3 +2,4 @@ sudo
 vim
 wget
 build-essential
+python-zmq
