@@ -9,7 +9,7 @@ EOF
 
 # Update package lists and upgrade outdated packages
 apt-get update
-apt-get safe-upgrade -y
+apt-get upgrade -y
 
 # Install common packages from packages.txt
 packages=$(cat packages.txt | tr '\n' ' ')
