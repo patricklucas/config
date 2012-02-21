@@ -2,13 +2,13 @@
 
 set -e
 
-# Update aptitude and upgrade everything
-aptitude update
-aptitude safe-upgrade -y
+# Update package lists and upgrade outdated packages
+apt-get update
+apt-get safe-upgrade -y
 
 # Install common packages from packages.txt
 packages=$(cat packages.txt | tr '\n' ' ')
-aptitude install -y $packages
+apt-get install -y $packages
 
 # Add prl user
 adduser --quiet --disabled-password --gecos "Patrick Lucas,,," prl

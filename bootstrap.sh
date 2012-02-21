@@ -2,7 +2,7 @@
 
 set -e
 
-aptitude install -y git
+apt-get install -y git
 
 git clone git://github.com/patricklucas/config.git $HOME/config
 
