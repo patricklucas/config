@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import getpass
 import logging
 import simplejson
 import optparse
@@ -28,7 +29,7 @@ DNS_DOMAIN_SUFFIX = '.atl'
 
 logging.basicConfig(level=logging.INFO)
 
-def add_linode(linode_type, hostname):
+def add_linode(linode_type, hostname, root_pass):
     linode_api = api.Api(options.api_key)
 
     # Add the Linode to the account
@@ -64,7 +65,7 @@ def add_linode(linode_type, hostname):
         DistributionID=DISTRIBUTION_ID,
         Label="%s Disk Image" % hostname,
         Size=DISK_SIZE,
-        rootPass='f002000',
+        rootPass=root_pass,
     )['DiskID']
     logging.info("Created disk image from StackScript")
 
@@ -120,4 +121,6 @@ if __name__ == '__main__':
 
     hostname = args[0]
 
-    add_linode(options.api_key, hostname)
+    root_pass = getpass.getpass("Root password: ")
+
+    add_linode(options.api_key, hostname, root_pass)
