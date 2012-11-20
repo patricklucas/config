@@ -16,9 +16,6 @@ d-i mirror/http/hostname string debian.gtisc.gatech.edu
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 
-# Suite to install.
-d-i mirror/suite string stable
-
 # Account
 d-i passwd/make-user boolean false
 d-i passwd/root-password-crypted password $1$uluINemf$xWfMMCYKQyd2v25iS7gvC0
