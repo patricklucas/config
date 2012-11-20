@@ -28,8 +28,11 @@ if [ -e "$config_packages" ]; then
     xargs < "$config_packages" apt-get install -y
 fi
 
-# Add prl user
-adduser --quiet --disabled-password --gecos "Patrick Lucas,,," prl
+# Add prl user if doesn't already exist
+if [ -z "$CONFIG_NO_CREATE_USER" ]; then
+    adduser --quiet --disabled-password --gecos "Patrick Lucas,,," prl
+fi
+
 usermod -a -G sudo prl
 
 # Install ssh key
