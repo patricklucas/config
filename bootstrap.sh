@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/bin/bash -e
 
-set -e
+# Install git, clone the config repo, and run install.sh
+
+INSTALL_DIR=$(mktemp -d)
 
 apt-get install -y git
 
-git clone git://github.com/patricklucas/config.git $HOME/config
+git clone git://github.com/patricklucas/config.git $INSTALL_DIR
 
-pushd $HOME/config > /dev/null
+pushd $INSTALL_DIR > /dev/null
 ./install.sh
 popd > /dev/null
 
-rm -rf $HOME/config
+rm -rf $INSTALL_DIR
