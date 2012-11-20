@@ -11,7 +11,11 @@ apt-get install -y git
 
 INSTALL_DIR=$(mktemp -d)
 
-git clone $REPO $INSTALL_DIR
+if [ -z "$CONFIG_BRANCH" ]; then
+    CONFIG_BRANCH="master"
+fi
+
+git clone -b "$CONFIG_BRANCH" "$REPO" "$INSTALL_DIR"
 
 pushd $INSTALL_DIR > /dev/null
 
