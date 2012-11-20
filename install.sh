@@ -58,3 +58,9 @@ fi
 
 # Disable screen welcome message
 sed -i 's/^#startup_message off$/startup_message off/' /etc/screenrc
+
+# Execute optional post-install script
+post_install="configs/$CONFIG_NAME/postinstall.sh"
+if [ -x "$post_install" ]; then
+    ./$post_install
+fi
