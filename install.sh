@@ -1,14 +1,5 @@
 #!/bin/bash -e
 
-if [ -z "$CONFIG_NAME" ]; then
-    echo >&2 "\$CONFIG_NAME unset!"
-    exit 1
-fi
-
-if [ -z "$CONFIG_RELEASE" ]; then
-    export CONFIG_RELEASE="squeeze"
-fi
-
 if [ -n "$CONFIG_BACKPORTS" ]; then
     # Add Debian backports sources list
     cat > /etc/apt/sources.list.d/backports.list << EOF
