@@ -1,0 +1,45 @@
+# Locale
+d-i debian-installer/locale string en_US
+
+# Keyboard
+d-i console-keymaps-at/keymap select us
+d-i keyboard-configuration/xkb-keymap select us
+
+# Network
+d-i netcfg/choose_interface select auto
+d-i netcfg/get_hostname string debianbot
+d-i netcfg/get_domain string patricklucas.net
+
+# Mirror
+d-i mirror/country string manual
+d-i mirror/http/hostname string debian.gtisc.gatech.edu
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+
+# Suite to install.
+d-i mirror/suite string stable
+
+# Account
+d-i passwd/make-user boolean false
+d-i passwd/root-password-crypted password $1$uluINemf$xWfMMCYKQyd2v25iS7gvC0
+
+# Clock and Time
+d-i clock-setup/utc boolean true
+d-i time/zone string US/Eastern
+d-i clock-setup/ntp boolean true
+
+# Partitioning
+d-i partman-auto/method string lvm
+d-i partman-lvm/confirm boolean true
+d-i partman-auto/choose_recipe select atomic
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+
+# Apt
+d-i apt-setup/non-free boolean true
+d-i apt-setup/contrib boolean true
+
+# Package selection
+tasksel tasksel/first multiselect standard, ssh-server
