@@ -7,10 +7,6 @@ deb http://backports.debian.org/debian-backports $CONFIG_RELEASE-backports main
 EOF
 fi
 
-# Update package lists and upgrade outdated packages
-apt-get update
-apt-get upgrade -y
-
 # Install packages
 xargs < common_packages.txt apt-get install -y
 

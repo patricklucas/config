@@ -7,6 +7,10 @@ if [ -z "$CONFIG_NAME" ]; then
     exit 1
 fi
 
+# Update package lists and upgrade outdated packages
+apt-get update
+apt-get upgrade -y
+
 apt-get install -y git
 
 INSTALL_DIR=$(mktemp -d)
