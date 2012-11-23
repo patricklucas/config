@@ -6,3 +6,4 @@ htop
 screen
 bwm-ng
 tree
+openssh-server
